@@ -2,8 +2,6 @@
 
 import { useRef, useState, useEffect } from "react";
 
-import Countdown from "react-countdown";
-
 import Step0 from "@/components/step-0-start";
 import Step1 from "@/components/step-1-susy";
 import Step2 from "@/components/step-2-susy";
@@ -34,20 +32,6 @@ function getComponent(step: number) {
   return steps[step] || Step0;
 }
 
-const renderer = ({
-  minutes,
-  seconds,
-}: {
-  minutes: number;
-  seconds: number;
-}) => {
-  return (
-    <span>
-      {minutes}:{seconds}
-    </span>
-  );
-};
-
 export default function Home() {
   const inputRef = useRef(null);
   const [step, setStep] = useState(0);
@@ -64,7 +48,7 @@ export default function Home() {
       return;
     }
 
-    const value = (inputRef.current["value"] as string).toLowerCase();
+    const value = (inputRef.current["value"] as string).toLowerCase().trim();
 
     switch (step) {
       case 0:
@@ -127,38 +111,22 @@ export default function Home() {
   return (
     <main
       style={{
-        height: "100vh",
-        border: "10px double #333",
-        boxSizing: "border-box",
         padding: 12,
-        fontSize: 30,
+        fontSize: 48,
         textAlign: "center",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        fontFamily: "fantasy",
+        fontFamily: "monospace",
+        marginTop: 20,
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        {step !== LAST_STEP && (
-          <Countdown date={Date.now() + 60_000 * 6.5} renderer={renderer} />
-        )}
-        {![0, LAST_STEP].includes(step) && (
-          <div style={{ fontSize: 40 }} onClick={() => setStatus(true)}>
-            ❓
-          </div>
-        )}
-      </div>
-
       <Component status={status} />
 
-      <div>
+      <div style={{ marginTop: 40 }}>
         <input
           style={{
             boxSizing: "border-box",
             width: "100%",
             padding: 12,
-            fontSize: 30,
+            fontSize: 48,
             visibility: [0, LAST_STEP].includes(step) ? "hidden" : "initial",
             marginBottom: 12,
             opacity: 0.8,
@@ -173,8 +141,9 @@ export default function Home() {
             style={{
               width: "100%",
               padding: 12,
-              fontSize: 30,
+              fontSize: 48,
               background: "white",
+              border: "1px solid #CCC",
             }}
             onClick={nextHandler}
           >
