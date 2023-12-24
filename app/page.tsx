@@ -51,6 +51,7 @@ const renderer = ({
 export default function Home() {
   const inputRef = useRef(null);
   const [step, setStep] = useState(0);
+  const [status, setStatus] = useState(false);
 
   const KeyDownHandler = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
@@ -118,6 +119,7 @@ export default function Home() {
     }
 
     inputRef.current["value"] = "" as never;
+    setStatus(false);
   }, [step]);
 
   const Component = getComponent(step);
@@ -137,11 +139,18 @@ export default function Home() {
         fontFamily: "fantasy",
       }}
     >
-      {step !== LAST_STEP && (
-        <Countdown date={Date.now() + 60_000 * 4.5} renderer={renderer} />
-      )}
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {step !== LAST_STEP && (
+          <Countdown date={Date.now() + 60_000 * 6.5} renderer={renderer} />
+        )}
+        {![0, LAST_STEP].includes(step) && (
+          <div style={{ fontSize: 40 }} onClick={() => setStatus(true)}>
+            ❓
+          </div>
+        )}
+      </div>
 
-      <Component />
+      <Component status={status} />
 
       <div>
         <input
@@ -150,7 +159,7 @@ export default function Home() {
             width: "100%",
             padding: 12,
             fontSize: 30,
-            visibility: [0, 9].includes(step) ? "hidden" : "initial",
+            visibility: [0, LAST_STEP].includes(step) ? "hidden" : "initial",
             marginBottom: 12,
             opacity: 0.8,
           }}
