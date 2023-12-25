@@ -1,0 +1,7 @@
+.blur {
+  filter: blur(1rem);
+}
+
+.blurLight {
+  filter: blur(.6rem);
+}
