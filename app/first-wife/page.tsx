@@ -17,10 +17,9 @@ export default function Home() {
           }}
         >
           <div>
-            ORD - <span className={styles.blur}>JFK</span>
+            ORD - <span>JFK</span>
           </div>
-          <div className={styles.blurLight}>04/24/2024 6:25PM</div>
-          <Countdown date={new Date("2023-12-25T12:00:00")} />
+          <div>04/24/2024 6:25PM</div>
         </div>
         <div
           style={{
@@ -29,14 +28,16 @@ export default function Home() {
             marginBottom: 40,
           }}
         >
-          <div className={styles.blur}>JFK - DOH</div>
+          {/*  JFK - DOH */}
+          <div className={styles.blur}>nice try</div>
           <div className={styles.blur}>04/25/2024 1:15AM</div>
-          <Countdown date={new Date("2023-12-26T12:00:00")} />
+          <Countdown date={new Date("2024-03-30T12:00:00")} />
         </div>
         <div>
-          <div className={styles.blur}>DOH - MLE</div>
+          {/* DOH - MLE */}
+          <div className={styles.blur}>nice try </div>
           <div className={styles.blur}>04/26/2024 3:05AM</div>
-          <Countdown date={new Date("2024-01-01T12:00:00")} />
+          <Countdown date={new Date("2024-03-30T12:00:00")} />
         </div>
       </div>
 
@@ -49,14 +50,16 @@ export default function Home() {
             marginBottom: 40,
           }}
         >
-          <div className={styles.blur}>MLE - KUL</div>
+          {/* MLE - KUL */}
+          <div className={styles.blur}>nice try </div>
           <div className={styles.blur}>04/29/2024 8:55PM</div>
-          <Countdown date={new Date("2024-01-02T12:00:00")} />
+          <Countdown date={new Date("2024-03-30T12:00:00")} />
         </div>
         <div>
-          <div className={styles.blur}>KUL - HAN</div>
+          {/* KUL - HAN */}
+          <div className={styles.blur}>nice try </div>
           <div className={styles.blur}>04/30/2024 6:10AM</div>
-          <Countdown date={new Date("2024-01-03T12:00:00")} />
+          <Countdown date={new Date("2024-03-30T12:00:00")} />
         </div>
       </div>
 
@@ -69,17 +72,16 @@ export default function Home() {
             marginBottom: 40,
           }}
         >
-          <div className={styles.blur}>HAN - TPE</div>
-          <div className={styles.blur}>05/10/2024 12:05PM</div>
-          <Countdown date={new Date("2024-01-04T12:00:00")} />
+          <div>HAN - TPE</div>
+          <div>05/10/2024 12:05PM</div>
         </div>
         <div
           style={{
             paddingBottom: 40,
           }}
         >
-          <div className={styles.blur}>TPE - ORD</div>
-          <div className={styles.blur}>05/10/2024 6:40PM</div>
+          <div>TPE - ORD</div>
+          <div>05/10/2024 6:40PM</div>
           <Countdown date={new Date("2023-12-27T12:00:00")} />
         </div>
       </div>
